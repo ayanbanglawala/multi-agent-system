@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
-
 import os
+import streamlit as st
 
 from langchain_mistralai import ChatMistralAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -9,7 +9,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 llm = ChatMistralAI(
     model="mistral-small-latest",
-    api_key=os.getenv("MISTRAL_API_KEY"),
+    api_key=st.secrets.get("MISTRAL_API_KEY"),
     temperature=0.7
 )
 
