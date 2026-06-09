@@ -2,6 +2,7 @@ from langchain.tools import tool
 from tavily import TavilyClient
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+import streamlit as st
 
 import requests
 import os
@@ -9,7 +10,7 @@ import os
 load_dotenv()
 
 tavily = TavilyClient(
-    api_key=os.getenv("TAVILY_API_KEY")
+    api_key=st.secrets.get("TAVILY_API_KEY")
 )
 
 @tool
